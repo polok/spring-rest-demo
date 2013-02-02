@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pl.polak.spring.rest.domain.Patient;
+import pl.polak.spring.rest.service.SpringRestDemoService;
 
 @Controller
 @RequestMapping("/patient")
 public class SpringRestDemoController {
 
+	private SpringRestDemoService service;  
+	
 	@ResponseBody
 	@RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
 	public List<Patient> getAllPatientsAsJson() {

@@ -1,13 +1,22 @@
 package pl.polak.spring.rest.domain;
 
-public class Patient {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "PATIENT")
+public class Patient {
+	
+	private Long id;
 	private String name;
 	private String surname;
 	private int age;
 
-	public Patient() {
-	}
+	public Patient() {}
 
 	public Patient(String name, String surname, int age) {
 		super();
@@ -16,6 +25,17 @@ public class Patient {
 		this.age = age;
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID")
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}
