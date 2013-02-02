@@ -1,11 +1,17 @@
 package pl.polak.spring.rest.domain;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Patient {
 	
 	private String name;
 	private String surname;
 	private int age;
 	
+	public Patient() {
+	}
+
 	public Patient(String name, String surname, int age) {
 		super();
 		this.name = name;

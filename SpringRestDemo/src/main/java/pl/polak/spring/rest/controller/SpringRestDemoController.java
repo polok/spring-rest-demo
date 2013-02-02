@@ -15,12 +15,13 @@ import pl.polak.spring.rest.domain.Patient;
 public class SpringRestDemoController {
 
 	@ResponseBody
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<Patient> getAllPatients() {
+	@RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
+	public List<Patient> getAllPatientsAsJson() {
 		List<Patient> patients = new ArrayList<Patient>();
 		patients.add(new Patient("Jan", "Kowalski", 30));
 		patients.add(new Patient("Piotr", "Kowalczyk", 25));
 		patients.add(new Patient("Jacek", "Mazur", 22));
 		return patients;
 	}
+	
 }
