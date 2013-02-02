@@ -11,6 +11,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			/WEB-INF/config/services-servlet.xml
+			/WEB-INF/config/database-config.xml
 		</param-value>
 	</context-param>
 

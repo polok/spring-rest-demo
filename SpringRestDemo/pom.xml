@@ -13,11 +13,19 @@
 		<maven.javadoc.reporting.version>2.7</maven.javadoc.reporting.version>
 		<context.path>springrestdemo</context.path>
 
-		<spring.version>3.1.1.RELEASE</spring.version>
+		<spring.version>3.1.2.RELEASE</spring.version>
+		<spring-data-jpa-version>1.1.0.RELEASE</spring-data-jpa-version>
+
+		<hibernate-entitymanager-version>4.1.4.Final</hibernate-entitymanager-version>
+		<hibernate-validator-version>4.3.0.Final</hibernate-validator-version>
+
 		<java.version>1.6</java.version>
 		<jackson.mapper.version>1.9.2</jackson.mapper.version>
 		<commons.logging.version>1.1.1</commons.logging.version>
 		<log4j.version>1.2.16</log4j.version>
+
+		<mysql.version>5.1.9</mysql.version>
+		<commons-dbcp-version>1.4</commons-dbcp-version>
 	</properties>
 
 	<build>
@@ -52,18 +60,24 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
-		
+
 		<!-- Spring 3 -->
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework</groupId> -->
+		<!-- <artifactId>spring-context</artifactId> -->
+		<!-- <version>${spring.version}</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
@@ -99,15 +113,58 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<!--  -->
-		
+
+		<!-- Spring database -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Database -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp-version}</version>
+		</dependency>
+
+		<!--Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate-entitymanager-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator-version}</version>
+		</dependency>
+
 		<!-- Jackson -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>${jackson.mapper.version}</version>
 		</dependency>
-		<!--  -->
+
+		<!-- -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -117,5 +174,12 @@
 
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>spring-milestone</id>
+			<name>Spring Maven MILESTONE Repository</name>
+			<url>http://repo.springsource.org/libs-milestone</url>
+		</repository>
+	</repositories>
 
 </project>
